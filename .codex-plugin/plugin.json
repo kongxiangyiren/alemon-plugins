@@ -1,0 +1,25 @@
+{
+  "$schema": "https://www.schemastore.org/codex-plugin-manifest.json",
+  "name": "alemon-plugins",
+  "description": "alemon ai插件库",
+  "author": {
+    "name": "kongxiangyiren"
+  },
+  "interface": {
+    "displayName": "alemon ai插件库",
+    "defaultPrompt": ["创建一个基于alemonjs的插件"],
+    "shortDescription": "alemon ai插件库",
+    "longDescription": "alemon ai插件库",
+    "developerName": "kongxiangyiren",
+    "category": "developer",
+    "capabilities": ["Read", "Write"],
+    "brandColor": "#ED1C24",
+    "logo": "./assets/icon.ico",
+    "composerIcon": "./assets/kongxiangyiren.jpg"
+  },
+  "version": "0.0.1",
+  "homepage": "https://alemonjs.com",
+  "repository": "https://github.com/kongxiangyiren/alemon-plugins",
+  "license": "MIT",
+  "keywords": ["alemonjs"]
+}
