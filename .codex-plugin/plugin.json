@@ -13,6 +13,7 @@
     "developerName": "kongxiangyiren",
     "category": "developer",
     "capabilities": ["Read", "Write"],
+    "websiteURL": "https://alemonjs.com",
     "brandColor": "#ED1C24",
     "logo": "./assets/icon.ico",
     "composerIcon": "./assets/kongxiangyiren.jpg"
