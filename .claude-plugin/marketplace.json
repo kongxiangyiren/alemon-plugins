@@ -1,5 +1,5 @@
 {
-  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "$schema": "https://www.schemastore.org/claude-code-plugin-manifest.json",
   "name": "alemon-plugins",
   "displayName": "Alemon Plugins",
   "owner": {
