@@ -9,7 +9,6 @@
   "plugins": [
     {
       "name": "alemonjs-dev-skill",
-      "version": "2026.05.15",
       "homepage": "https://alemonjs.com/",
       "repository": "https://github.com/lemonade-lab/alemonjs-dev-skill",
       "source": "./",
@@ -18,7 +17,6 @@
     },
     {
       "name": "alemonjs-migrate-skill",
-      "version": "2026.05.15",
       "homepage": "https://alemonjs.com/",
       "repository": "https://github.com/yunzaijs/alemonjs-migrate-skill",
       "source": "./",
