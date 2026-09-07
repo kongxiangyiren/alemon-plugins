@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "skills": {
+    "alemonjs-dev-skill": {
+      "source": "lemonade-lab/alemonjs-dev-skill",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "fa86f04b5774884bd5da4a5ab92bb6cd2bbcbcbc4e89a094bfecf46caedb15a7"
+    },
+    "alemonjs-migrate-skill": {
+      "source": "yunzaijs/alemonjs-migrate-skill",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "3374e57edf55a20275ec390c05821ab163dbc79d7106164dec2a0024975fe32a"
+    }
+  }
+}
