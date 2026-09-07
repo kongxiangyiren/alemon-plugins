@@ -23,5 +23,6 @@
   "repository": "https://github.com/kongxiangyiren/alemon-plugins",
   "license": "MIT",
   "keywords": ["alemonjs"],
-  "skills": "./.agents/skills"
+  "skills": "./.agents/skills",
+  "mcpServers":"./.mcp.json"
 }
