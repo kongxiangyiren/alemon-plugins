@@ -5,7 +5,7 @@
   },
   "plugins": [
     {
-      "name": "alemon-skills",
+      "name": "alemon-plugins",
       "source": {
         "source": "local",
         "path": "./"
