@@ -13,7 +13,7 @@
       "repository": "https://github.com/lemonade-lab/alemonjs-dev-skill",
       "source": "./",
       "strict": false,
-      "skills": ["./.agents/skills/alemonjs-dev-skill"],
+      "skills": ["./skills/alemonjs-dev-skill"],
       "description": "alemonjs 通用开发"
     },
     {
@@ -22,7 +22,7 @@
       "repository": "https://github.com/yunzaijs/alemonjs-migrate-skill",
       "source": "./",
       "strict": false,
-      "skills": ["./.agents/skills/alemonjs-migrate-skill"],
+      "skills": ["./skills/alemonjs-migrate-skill"],
       "description": "迁移yunzai插件"
     }
   ]

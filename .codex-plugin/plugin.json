@@ -9,7 +9,7 @@
   "repository": "https://github.com/kongxiangyiren/alemon-plugins",
   "license": "MIT",
   "keywords": ["alemonjs"],
-  "skills": ["./.agents/skills/alemonjs-dev-skill", "./.agents/skills/alemonjs-migrate-skill"],
+  "skills": ["./skills/alemonjs-dev-skill", "./skills/alemonjs-migrate-skill"],
   "interface": {
     "displayName": "alemon ai插件库",
     "shortDescription": "alemon ai插件库",
