@@ -8,7 +8,7 @@
       "name": "alemon-skills",
       "source": {
         "source": "local",
-        "path": "./.agents"
+        "path": "./"
       },
       "policy": {
         "installation": "AVAILABLE",
