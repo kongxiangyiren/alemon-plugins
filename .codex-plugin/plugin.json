@@ -22,5 +22,6 @@
   "homepage": "https://alemonjs.com",
   "repository": "https://github.com/kongxiangyiren/alemon-plugins",
   "license": "MIT",
-  "keywords": ["alemonjs"]
+  "keywords": ["alemonjs"],
+  "skills": ["./.agents/skills/alemonjs-dev-skill", "./.agents/skills/alemonjs-migrate-skill"]
 }
