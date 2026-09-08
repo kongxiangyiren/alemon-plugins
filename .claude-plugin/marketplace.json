@@ -22,18 +22,6 @@
       "source": "./",
       "skills": ["./.agents/skills/alemonjs-migrate-skill"],
       "description": "迁移yunzai插件"
-    },
-    {
-      "name": "chrome-devtools",
-      "description": "浏览器mcp",
-      "source": "./",
-      "version": "0.0.1",
-      "mcpServers": {
-        "chrome-devtools": {
-          "command": "npx",
-          "args": ["-y", "chrome-devtools-mcp@latest", "--autoConnect"]
-        }
-      }
     }
   ]
 }
