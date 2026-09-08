@@ -23,5 +23,5 @@
   "repository": "https://github.com/kongxiangyiren/alemon-plugins",
   "license": "MIT",
   "keywords": ["alemonjs"],
-  "skills": ["./.agents/skills/alemonjs-dev-skill", "./.agents/skills/alemonjs-migrate-skill"]
+  "skills": "./.agents/skills"
 }
