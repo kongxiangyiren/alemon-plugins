@@ -11,7 +11,17 @@
 ```yaml
 port: 17117
 input: 'lib/index.js'
+serverPort: 18110
+autoPort: false # 端口冲突时是否自动递增
 ```
+
+框架级配置还可按需使用：
+
+- `apps`：启用并纳入运行时管理的子模块；模块配置以包名为 key。
+- `processor.repeated_event_time` / `processor.repeated_user_time`：重复事件与连续用户消息的过滤窗口（毫秒）。
+- `redirect_text_regular`、`redirect_text_target`、`mapping_text`：将输入文本重定向或映射后再处理。
+
+用户可编辑的业务配置仍应放在应用自身的 `alemon.config.yaml` 命名空间内，不把它们混入环境变量或临时存储。
 
 ### getConfigValue
 

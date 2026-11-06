@@ -1,6 +1,6 @@
 # AlemonJS Hooks 参考
 
-本文聚焦业务可直接调用的 hooks，结合官方 `docs/alemonjsDocs/basic/hook.mdx`、`response.md` 与 `data-type.md` 的能力面整理推荐写法。事件字段详见 events，消息结构详见 message-format。
+本文聚焦业务可直接调用的 hooks，结合官方 `docs/alemonjsDocs/core/hook.mdx`、`response.md` 与 `data-type.md` 的能力面整理推荐写法。事件字段详见 events，消息结构详见 message-format。
 
 ## 使用约定
 
@@ -180,7 +180,7 @@ const many = await mention.find({ IsBot: false });
 
 ### useSubscribe
 
-`useSubscribe` 用于在某个事件周期里持续观察后续事件，适合登录确认、多轮交互、二次确认、验证码一类流程。
+`useSubscribe` 用于在某个事件周期里持续观察后续事件，适合临时监听、一次性观察和 create/mount/unmount 生命周期订阅。
 
 ```typescript
 const [subscribe] = useSubscribe(['message.create', 'private.message.create']);
@@ -225,7 +225,7 @@ subscribe.cancel(sub);
 推荐：
 
 - 订阅一定配超时和取消逻辑，避免悬空状态
-- 多轮交互优先按 `UserId` 或 `UserId + ChannelId` 收敛作用域
+- 多轮、分步且需要保存状态的流程优先使用 `createContext`；它提供作用域、状态、冲突和过期控制，见 [context.md](./context.md)
 - 订阅回调里如果要发消息或读上下文，显式 `useMessage(event)`
 
 ## 管理类 hooks
@@ -338,6 +338,11 @@ const [media] = useMedia();
 await media.upload({ type: 'image', url: 'https://example.com/image.png' });
 await media.sendChannel({ type: 'image', url: 'https://example.com/image.png', channelId: '30001' });
 await media.sendUser({ userId: '10001', type: 'audio', url: 'https://example.com/test.mp3' });
+await media.send({
+  target: { targetId: '30001', scope: 'channel' },
+  type: 'image',
+  filePath: '/tmp/image.png'
+});
 ```
 
 `type` 常用值：
@@ -346,6 +351,28 @@ await media.sendUser({ userId: '10001', type: 'audio', url: 'https://example.com
 - `'audio'`
 - `'video'`
 - `'file'`
+
+媒体来源可为 `url`、`data`、`filePath` 或 `fileId`，一次操作只能提供其中一种。调用后通过返回结果的 `code` 判断平台是否成功处理。
+
+### useConnection
+
+查询当前机器人连接状态。
+
+```typescript
+const [{ getStatus }] = useConnection();
+const result = await getStatus({ BotId: 'bot-id' });
+```
+
+### useInteraction
+
+确认按钮、命令等平台交互事件。省略 `InteractionId` 时会从当前事件读取。
+
+```typescript
+const [{ ack }] = useInteraction();
+const result = await ack({ InteractionId: 'interaction-id', code: 0 });
+```
+
+连接和交互能力不被平台支持时通常返回 `Warn`；业务必须检查 `result.code`，而不是只依赖异常控制流。
 
 ### useHistory
 
@@ -424,7 +451,7 @@ export default () => {
 const direct = MessageDirect.create();
 
 await direct.sendToChannel({ SpaceId: '30001', format });
-await direct.sendToUser({ OpenID: '10001', format });
+await direct.sendToUser({ OpenId: '10001', format });
 ```
 
 ## route 上下文

@@ -6,37 +6,44 @@ ALemonJS 跨平台聊天机器人开发的 AI 编程助手 Skill，为 AI 编码
 
 ## 安装
 
-### GitHub Copilot
-
-将此仓库克隆到项目的 `.github/skills/` 目录下：
+### 克隆
 
 ```bash
-git clone --depth=1 https://github.com/lemonade-lab/alemonjs-dev-skill .github/skills/alemonjs-dev
+git clone git clone --depth=1 https://github.com/lemonade-lab/alemonjs-dev-skill ./.agents/skills
 ```
 
-或使用 Git Submodule 跟踪上游更新：
+### 连接到各个Agent
+
+可通过link，以copilot为例
 
 ```bash
-git submodule add https://github.com/lemonade-lab/alemonjs-dev-skill .github/skills/alemonjs-dev
+sudo ln -s "$PWD/.agents/skills" "$PWD/.github/skills"
 ```
+  
+- GitHub Copilot
 
-### Cursor
+.github/skills
 
-将此仓库克隆到项目的 `.cursor/skills/` 目录下：
+- Claude Code
 
-```bash
-git clone --depth=1 https://github.com/lemonade-lab/alemonjs-dev-skill .cursor/skills/alemonjs-dev
-```
+.claude/skills
 
-或在 `.cursor/rules` 中引用 SKILL.md 内容。
+- Cursor
+  
+.cursor/skills/
 
-### Windsurf
+- Windsurf
 
-将此仓库克隆到项目根目录并在 `.windsurfrules` 中引用：
+.windsurf/skills/
 
-```bash
-git clone --depth=1 https://github.com/lemonade-lab/alemonjs-dev-skill .windsurf/skills/alemonjs-dev
-```
+- trae
+
+.trae/skills
+
+- codex
+
+.codex/skills
+
 
 ## 快速开始
 

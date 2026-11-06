@@ -1,6 +1,6 @@
 ---
 name: alemonjs-dev-skill
-description: 'AlemonJS 通用开发技能。Use when: 新建或维护大多数 AlemonJS 项目、统一 Router DSL / handler / hooks 写法、处理 useEvent / useRoute 与 route 上下文、按官网标准组织 Format/Markdown/Button 消息、实现订阅/中间件/配置读取/框架托管定时任务、处理时间与 dayjs、按标准结构组织工程、接入 lvyjs 构建链路。'
+description: 'AlemonJS 通用开发技能。Use when: 新建或维护大多数 AlemonJS 项目、统一 Router DSL / handler / hooks 写法、处理 useEvent / useRoute / 事件上下文、按官网标准组织 Format/Markdown/Button 消息、实现订阅/中间件/HTTP 路由/配置读取/框架托管定时任务、处理时间与 dayjs、按标准结构组织工程、接入 lvyjs 构建链路。'
 argument-hint: '描述目标功能与场景，如 "加一个可扩展的签到命令" 或 "统一项目路由和中间件写法"'
 ---
 
@@ -18,8 +18,10 @@ argument-hint: '描述目标功能与场景，如 "加一个可扩展的签到�
 | 架构标准 | [references/architecture.md](./references/architecture.md) | 生命周期、执行链、项目分层 |
 | 路由标准 | [references/routing.md](./references/routing.md) | Router DSL、scope、参数校验、fallback |
 | Hook 标准 | [references/hooks.md](./references/hooks.md) | 常用 hooks 与 `useRoute()` 路由上下文 |
+| 事件上下文 | [references/context.md](./references/context.md) | 多轮会话、状态、作用域与超时 |
 | 消息标准 | [references/message-format.md](./references/message-format.md) | Format/Markdown/Button 统一写法 |
 | 事件标准 | [references/events.md](./references/events.md) | EventKeys、通用事件字段、路由上下文 |
+| HTTP 标准 | [references/http.md](./references/http.md) | `koaRouter`、静态资源、生命周期与错误处理 |
 | 构建标准 | [references/lvyjs-dev.md](./references/lvyjs-dev.md) | lvyjs 开发/构建/别名/资源 |
 | 图片标准 | [references/jsxp-dev.md](./references/jsxp-dev.md) | jsxp 组件与渲染链路 |
 | 运行时标准 | [references/app-runtime.md](./references/app-runtime.md) | 配置读取、定时任务、热重载清理 |
@@ -214,7 +216,7 @@ export default defineChildren({
 4. 用 `group({ routeText })` 定义命令作用域、共享中间件与前缀规则
 5. 用 `group.use(...)` 注册命令，参数写进 `schema`
 6. 需要鉴权或日志时，把 middleware 作为 importer 串到 group 或 route
-7. 需要交互状态时加 `useSubscribe`
+7. 临时观察或订阅生命周期时使用 `useSubscribe`；多轮、分步且需要保存状态的交互使用 `createContext`
 8. 需要图片输出时接入 jsxp
 
 ## 常用命令
@@ -250,6 +252,7 @@ npm run build
 - 预期错误与系统错误分开处理，给用户的文案和给日志的上下文分开设计
 - 外部 IO 默认加超时和失败预期，涉及重复事件、限额、签到、回调时优先考虑幂等
 - HTTP / API 请求默认优先使用 `axios`，不要继续新增基于原生 `fetch` 的请求封装；超时、headers、params、拦截器与错误归一化应围绕 `axios` 组织
+- 对平台 action（发消息、媒体、连接、交互确认等）一律检查返回结果的 `code`；不支持的平台能力可能返回 `Warn`，不一定抛异常
 
 ## 迁移与兼容
 
@@ -268,9 +271,11 @@ npm run build
 
 ## 需要运行时能力时
 
-- 初始化、挂载、异常卸载：读取 [references/architecture.md](./references/architecture.md) 的“应用生命周期钩子”
+- 初始化、ready 检查、事件/HTTP 错误和清理：读取 [references/architecture.md](./references/architecture.md) 的“应用生命周期钩子”
 - 配置读取、配置监听、配置写回：读取 [references/app-runtime.md](./references/app-runtime.md) 的“配置读取”
 - 定时任务、cron、暂停恢复、自动清理：读取 [references/app-runtime.md](./references/app-runtime.md) 的“框架托管定时任务”
+- 多轮对话、分步表单、验证码确认：读取 [references/context.md](./references/context.md)
+- API、静态站点、Koa 中间件：读取 [references/http.md](./references/http.md)
 
 ## 仍未找到相关内容时
 

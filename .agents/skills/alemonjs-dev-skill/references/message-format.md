@@ -38,6 +38,9 @@ const format = Format.create().addButtonGroup(
 );
 ```
 
+- 一个按钮组最多 5 行、每行最多 5 个按钮；超过不保证能发送或渲染。
+- 需要跳转链接时用 `{ type: 'link' }`，平台交互可用 `{ type: 'call' }`；`autoEnter`、`showList`、`toolTip` 仅按平台能力生效。
+
 ## Markdown 推荐写法
 
 ```typescript
@@ -65,6 +68,13 @@ md.addTitle('标题')
 const [message] = useMessage();
 message.send({ format: Format.create().addText('Hello') });
 ```
+
+## 发送与降级
+
+- 媒体（Image/Audio/Video/Attachment）优先于 Markdown/按钮，Markdown/按钮优先于普通文本。
+- 有媒体时，支持 caption 的平台会合并低优先级内容；不支持时框架可能拆成多次实际发送。因此不要把一次 `message.send({ format })` 当作一次平台 API 调用。
+- Markdown 与 Text 属于同一信息层：支持 Markdown 时合并为 Markdown；否则 Markdown 降级为文本。
+- 不支持的 ButtonGroup、Markdown、音视频、附件会逐步降级为文本。业务层只需构建语义正确的 `Format`，并检查 action 返回结果。
 
 ## 相关文档
 
