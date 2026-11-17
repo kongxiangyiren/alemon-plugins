@@ -1,17 +1,19 @@
 {
-  "version": 1,
+  "version": 2,
   "skills": {
     "alemonjs-dev-skill": {
       "source": "lemonade-lab/alemonjs-dev-skill",
       "sourceType": "github",
       "skillPath": "SKILL.md",
-      "computedHash": "eb8994e2a12c2e0bd672b019b40c7b2dc77e9456690ba0febcbc2d232750e9d9"
+      "computedHash": "cb7918f9963f36f34d77fbccc13dc10686b4f52c8981cf8463aaeff1e0820d42",
+      "commit": "65ab2c9f228d402b03d0c70be3ca42d5b1c87ab3"
     },
     "alemonjs-migrate-skill": {
       "source": "yunzaijs/alemonjs-migrate-skill",
       "sourceType": "github",
       "skillPath": "SKILL.md",
-      "computedHash": "3374e57edf55a20275ec390c05821ab163dbc79d7106164dec2a0024975fe32a"
+      "computedHash": "4ff4dc9a193357eda919a3f91609c9b7f1ab95c24c9eafba269d1f8b54923b39",
+      "commit": "b11a2db440170c34c227f57afa7b9e3a4efd9ffe"
     }
   }
 }
