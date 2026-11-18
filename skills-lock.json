@@ -5,8 +5,8 @@
       "source": "lemonade-lab/alemonjs-dev-skill",
       "sourceType": "github",
       "skillPath": "SKILL.md",
-      "computedHash": "cb7918f9963f36f34d77fbccc13dc10686b4f52c8981cf8463aaeff1e0820d42",
-      "commit": "65ab2c9f228d402b03d0c70be3ca42d5b1c87ab3"
+      "computedHash": "c15a0aa401b587c2108f56f115c16be0d1afb0b7d65ddd5bca4d71bb6c4b3e92",
+      "commit": "256f765d7e18c08b2757d46a1776a9f02968ea93"
     },
     "alemonjs-migrate-skill": {
       "source": "yunzaijs/alemonjs-migrate-skill",
